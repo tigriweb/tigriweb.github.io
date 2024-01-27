@@ -27,17 +27,18 @@ const twebFilterIcons = event => {
 };
 
 const twebCopyToClipboard = async function (event) {
-	const tooltip = event.target.dataset.tooltip;
+	const svgIcon = event.target.querySelector('svg');
+	const svgCode = svgIcon.outerHTML;
 
 	if (navigator.clipboard && window.isSecureContext) {
-		navigator.clipboard.writeText(tooltip).then(() => {
-			console.log('Copied:', tooltip);
+		navigator.clipboard.writeText(svgCode).then(() => {
+			console.log('Copied:', svgCode);
 		}).catch((err) => {
 			console.error('Error:', err);
 		});
 	} else {
 		const textarea = document.createElement('textarea');
-		textarea.value = tooltip;
+		textarea.value = svgCode;
 
 		textarea.style.position = 'absolute';
 		textarea.style.left = '-99999999px';
@@ -48,7 +49,7 @@ const twebCopyToClipboard = async function (event) {
 
 		try {
 			document.execCommand('copy');
-			console.log('Copied:', tooltip);
+			console.log('Copied:', svgCode);
 		} catch (err) {
 			console.error('Error:', err);
 		} finally {
@@ -62,7 +63,7 @@ const twebSetTooltip = event => {
 	const groupAriaLabelValue = event.target.closest('.tweb-icon-component__icons').previousSibling.getAttribute('aria-label');
 	const buttonAriaLabelValue = event.target.getAttribute('aria-label');
 
-	event.target.dataset.tooltip = `${groupAriaLabelValue}.${buttonAriaLabelValue}`.replace(/\s+/g, '-').toLowerCase();
+	event.target.dataset.tooltip = `${buttonAriaLabelValue}`.toLowerCase();
 };
 
 window.addEventListener('DOMContentLoaded', () => {
