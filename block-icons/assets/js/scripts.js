@@ -28,7 +28,7 @@ const twebFilterIcons = event => {
 
 const twebCopyToClipboard = async function (event) {
 	const svgIcon = event.target.querySelector('svg');
-	const svgCode = svgIcon.outerHTML;
+	const svgCode = svgIcon.outerHTML.replace('"></path>', '" />');
 
 	if (navigator.clipboard && window.isSecureContext) {
 		navigator.clipboard.writeText(svgCode).then(() => {
