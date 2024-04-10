@@ -20,9 +20,6 @@ const twebFilterIcons = event => {
 				button.style.display = 'none';
 			}
 		});
-
-		areaNode.style.display = (hasIcon) ? 'flex' : 'none';
-		areaNode.previousSibling.style.display = (hasIcon) ? 'flex' : 'none';
 	});
 };
 
@@ -59,10 +56,9 @@ const twebCopyToClipboard = async function (event) {
 
 
 const twebSetTooltip = event => {
-	const groupAriaLabelValue = event.target.closest('.tweb-icon-component__icons').previousSibling.getAttribute('aria-label');
-	const buttonAriaLabelValue = event.target.getAttribute('aria-label');
+	const buttonLabelValue = event.target.getAttribute('aria-label');
 
-	event.target.dataset.tooltip = `${groupAriaLabelValue}.${buttonAriaLabelValue}`.replace(/\s+/g, '-').toLowerCase();
+	event.target.dataset.tooltip = `${buttonLabelValue}`.replace(/\s+/g, '-').toLowerCase();
 };
 
 window.addEventListener('DOMContentLoaded', () => {

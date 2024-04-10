@@ -79,22 +79,11 @@ input::placeholder {
 
 .tweb-icon-component__search {
 	padding-top: 20px;
+	padding-bottom: 20px;
 	position: sticky;
 	top: 0;
 	background: var(--color-bg);
 	z-index: 3;
-}
-
-.tweb-icon-component__label {
-	font-size: 24px;
-	color: var(--color-text);
-	font-weight: 700;
-	background: var(--color-bg);
-	padding-top: 16px;
-	padding-bottom: 16px;
-	position: sticky;
-	top: 80px;
-	z-index: 2;
 }
 
 .tweb-icon-component__icons {
@@ -128,7 +117,7 @@ input::placeholder {
 	padding: 3px 8px;
 	font-size: 12px;
 	box-shadow: rgb(55, 65, 81) 0px 0px 0px 1px inset;
-	z-index: 2;
+	z-index: 3;
 	white-space: nowrap;
 	transition: .05s cubic-bezier(0.16, 1, 0.3, 1);
 	height: 20px;
@@ -144,7 +133,6 @@ input::placeholder {
 }
 
 .tweb-icon-component__icons .components-button svg {
-	fill: currentColor;
 	transition: .05s cubic-bezier(0.16, 1, 0.3, 1);
 	pointer-events: none;
 }
